@@ -1,0 +1,39 @@
+extends layouts/base
+
+block bonushead
+	title accueil
+
+
+block body
+	body
+
+	div(id="menu")
+		script.
+			var liste_notices_client = [];
+			function afficherNotice(id){
+				var notice = liste_notices_client[id];
+				document.getElementById("nom").innerHTML = "<b>Nom notice :</b> " + notice.nom;
+				var ul = document.getElementById("param");
+				ul.innerHTML = "";
+				for (p of notice.params){
+					var li = document.createElement("li");
+					li.innerHTML = p.nom;
+					ul.appendChild(li);
+				}
+			}
+
+		- var i = 0;
+		for element in liste_notices
+			script.
+				liste_notices_client[#{i}] = {
+					nom: "#{element.nom}",
+					params: !{JSON.stringify(element.param)}
+				};
+			button(class="bouton", onclick="afficherNotice("+i+")") #{element.nom}
+			- i++;
+
+	div(id="notice")
+		p(id="nom")
+		ul(id="param")
+
+

@@ -1,0 +1,44 @@
+body {
+    margin: none;
+    padding: none;
+}
+
+
+
+#menu {
+    width: 15%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    float: left;
+    overflow-y: auto;
+    height:100%;
+}
+
+#menu .bouton {
+    background-color: #eee;
+    color: black;
+    display: block;
+    height: 100px;
+    text-align: left;
+    border: 10px;
+    padding: 15px 10px;
+    font-size: 14px;
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+
+#menu .bouton:hover {
+    background-color: #ccc;
+}
+
+.bouton.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#notice {
+    margin-left: 15%;
+}
